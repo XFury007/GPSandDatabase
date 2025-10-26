@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GPSm2u.View.MainLocationPage"
+             Title="MainLocationPage">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Label Text="Current Position" FontSize="18" FontAttributes="Bold"/>
+
+            <Button Text="My Location" Command="{Binding GetLocationCommand}" />
+
+            <ActivityIndicator IsRunning="{Binding IsBusy}"
+                            IsVisible="{Binding IsBusy}" />
+
+            <Label Text="{Binding DisplayLocation}"
+                FontSize="16"
+                LineBreakMode="WordWrap" />
+
+            <BoxView HeightRequest="1" Color="#ccc" Margin="0,20,0,10"/>
+
+            <Label Text="Routes (Azure Maps)"
+                FontSize="18"
+                FontAttributes="Bold" />
+
+            <Button Text="Route to Table Mountain"
+                 Command="{Binding RouteToTableMountainCommand}" />
+
+            <Button Text="Route to V/A Waterfront"
+                 Command="{Binding RouteToVAWaterfrontCommand}" />
+
+            <Button Text="Route to Cape Point"
+                 Command="{Binding RouteToCapePointCommand}" />
+
+            <Label FontSize="12"
+                Text="Note: Opens Azure Maps static map (or JSON if adjusted). Replace logic to render inside the app if needed." 
+                TextColor="#453"/>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
